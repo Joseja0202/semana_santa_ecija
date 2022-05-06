@@ -28,7 +28,13 @@ class Hermano
     #[ORM\Column(type: 'integer')]
     private $telefono;
 
-    #[ORM\ManyToOne(targetEntity: hermandad::class, inversedBy: 'hermanos')]
+    #[ORM\Column(type: 'string')]
+    private $direccion;
+
+    #[ORM\Column(type: 'string')]
+    private $dni;
+
+    #[ORM\ManyToOne(targetEntity: Hermandad::class, inversedBy: 'hermanos')]
     #[ORM\JoinColumn(nullable: false)]
     private $hermandad;
 
@@ -97,12 +103,36 @@ class Hermano
         return $this;
     }
 
-    public function getHermandad(): ?hermandad
+    public function getDireccion(): ?string
+    {
+        return $this->direccion;
+    }
+
+    public function setDireccion(string $direccion): self
+    {
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    public function getDni(): ?string
+    {
+        return $this->dni;
+    }
+
+    public function setDni(string $dni): self
+    {
+        $this->dni = $dni;
+
+        return $this;
+    }
+
+    public function getHermandad(): ?Hermandad
     {
         return $this->hermandad;
     }
 
-    public function setHermandad(?hermandad $hermandad): self
+    public function setHermandad(?Hermandad $hermandad): self
     {
         $this->hermandad = $hermandad;
 
