@@ -17,8 +17,11 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class HermanoController extends AbstractController
 {
-    //Get hermano for id
+    /*Get hermano for id 
 
+    -Metodo GET para obtener un hermano por id
+
+    */
         #[Route('/api/hermano/{id}', name: 'heramano_get', methods: ['GET'])]
         function getHermanoforId(ManagerRegistry $doctrine ,$id) : Response{
         
@@ -48,7 +51,11 @@ class HermanoController extends AbstractController
 
 
 
-    // Get hermanos 
+    /*Get hermanos
+
+    -Metodo GET para obtener todos los hermanos
+
+    */
     #[Route('/api/hermanos', name: 'hermanos_get', methods: ['GET'])]
     function getHermanos(ManagerRegistry $doctrine) : Response{
 
@@ -75,7 +82,11 @@ class HermanoController extends AbstractController
     }
 
 
-    //Get hermanos por idHermandad
+    /*Get hermanos por cada hermandad
+
+    -Metodo GET para obtener todos los hermanos de cada hermandad
+
+    */
     #[Route('/api/listaHermanos/{idHermandad}', name: 'tareas_idHermandad', methods: ['GET'])]
     function getListaHermanosIdHermandad(ManagerRegistry $doctrine ,$idHermandad) : Response{
 
@@ -103,7 +114,11 @@ class HermanoController extends AbstractController
 
 
 
-    //Post hermano
+    /*Post hermano
+
+    -Metodo POST para crear un hermano
+    
+    */
     #[Route('/api/hermano', name: 'hermano_post', methods: ['POST'])]
     function postHermano(ManagerRegistry $doctrine, Request $request) : Response{
 
@@ -132,6 +147,7 @@ class HermanoController extends AbstractController
 
         $result = new \stdClass();
         $result->id = $hermano->getId();
+        $result->nombre = $hermano->getNombre();
         $result->apellido1 = $hermano->getApellido1();
         $result->apellido2 = $hermano->getApellido2();
         $result->fecha_nacimiento = $hermano->getFechaNacimiento();
@@ -149,7 +165,11 @@ class HermanoController extends AbstractController
 
 
 
-    //Put tarea
+    /*Put hermano
+
+    -Metodo PUT para crear un hermano
+    
+    */
     #[Route('/api/hermano/{id}', name: 'hermano_put', methods: ['PUT'])]
     function putHermano(ManagerRegistry $doctrine,Request $request, $id) {
 
@@ -176,6 +196,7 @@ class HermanoController extends AbstractController
 
         $result = new \stdClass();
         $result->id = $hermano->getId();
+        $result->nombre = $hermano->getNombre();
         $result->apellido1 = $hermano->getApellido1();
         $result->apellido2 = $hermano->getApellido2();
         $result->fecha_nacimiento = $hermano->getFechaNacimiento();
@@ -191,7 +212,11 @@ class HermanoController extends AbstractController
 
 
 
-    //Delete hermano
+    /*Delete hermano
+
+    -Metodo DELETE para crear un hermano
+    
+    */
     #[Route('/api/hermano/{id}', name: 'hermano_delete', methods: ['DELETE'])]
     function deleteHermano(ManagerRegistry $doctrine, $id) {
 
