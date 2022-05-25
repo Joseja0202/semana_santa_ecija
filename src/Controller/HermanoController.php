@@ -131,13 +131,13 @@ class HermanoController extends AbstractController
         ], 404);
         }  
         
-        $fecha = date_create_from_format("d-m-Y" , $request->request->get("fechaNacimiento"));
+        
 
         $hermano = new Hermano();
         $hermano->setNombre($request->request->get("nombre"));
         $hermano->setApellido1($request->request->get("apellido1"));
         $hermano->setApellido2($request->request->get("apellido2"));
-        $hermano->setFechaNacimiento($fecha);
+        $hermano->setFechaNacimiento($request->request->get("fechaNacimiento"));
         $hermano->setTelefono($request->request->get("telefono"));
         $hermano->setDireccion($request->request->get("direccion"));
         $hermano->setDni($request->request->get("dni"));
@@ -155,6 +155,8 @@ class HermanoController extends AbstractController
         $result->direccion = $hermano->getDireccion();
         $result->dni = $hermano->getDni();
         $result->hermandad = $hermano->getHermandad()->getId();
+
+
         
 
         return new JsonResponse($result);

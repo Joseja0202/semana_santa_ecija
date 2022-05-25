@@ -22,10 +22,10 @@ class Hermano
     #[ORM\Column(type: 'string', length: 255)]
     private $apellido2;
 
-    #[ORM\Column(type: 'date')]
-    private $fecha_nacimiento;
+    #[ORM\Column(type: 'string',length: 255)]
+    private $fechaNacimiento;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'string',length: 255)]
     private $telefono;
 
     #[ORM\Column(type: 'string')]
@@ -79,24 +79,24 @@ class Hermano
         return $this;
     }
 
-    public function getFechaNacimiento(): ?\DateTimeInterface
+    public function getFechaNacimiento(): ?string
     {
         return $this->fecha_nacimiento;
     }
 
-    public function setFechaNacimiento(\DateTimeInterface $fecha_nacimiento): self
+    public function setFechaNacimiento(string $fechaNacimiento): self
     {
-        $this->fecha_nacimiento = $fecha_nacimiento;
+        $this->fechaNacimiento = $fechaNacimiento;
 
         return $this;
     }
 
-    public function getTelefono(): ?int
+    public function getTelefono(): ?string
     {
         return $this->telefono;
     }
 
-    public function setTelefono(int $telefono): self
+    public function setTelefono(string $telefono): self
     {
         $this->telefono = $telefono;
 
