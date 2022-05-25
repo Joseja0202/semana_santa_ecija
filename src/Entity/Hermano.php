@@ -23,7 +23,7 @@ class Hermano
     private $apellido2;
 
     #[ORM\Column(type: 'string',length: 255)]
-    private $fechaNacimiento;
+    private $fecha_nacimiento;
 
     #[ORM\Column(type: 'string',length: 255)]
     private $telefono;
@@ -79,14 +79,14 @@ class Hermano
         return $this;
     }
 
-    public function getFechaNacimiento(): ?string
+    public function getFecha_nacimiento(): ?string
     {
         return $this->fecha_nacimiento;
     }
 
-    public function setFechaNacimiento(string $fechaNacimiento): self
+    public function setFecha_nacimiento(string $fecha_nacimiento): self
     {
-        $this->fechaNacimiento = $fechaNacimiento;
+        $this->fecha_nacimiento = $fecha_nacimiento;
 
         return $this;
     }
